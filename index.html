@@ -36,6 +36,7 @@
               <th>Language</th>
               <th>Last maintained</th>
               <th>Legend</th>
+              <th>Axis Labels</th>
             </tr>
             <tr>
               <td><a href="http://www.chartjs.org/">Chart.js version 8f025f33c0<br>
@@ -77,6 +78,48 @@ new Chart(ctx).Line(data,options);</pre>
               <td>Javascript</td>
               <td>Oct 2013</td>
               <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.flotcharts.org/">Flot 0.8.3<br>
+                </a></td>
+              <td><img alt="Flot line chart" src="flot-line.png"></td>
+              <td>
+                <pre>$.plot("#placeholder", [
+  { data: dd, label: "DD", points: {show: true}, lines:
+     {show: true, fill: true}, color: '#748BA7' },
+  { data: xom, label: "XOM", points: {show: true}, lines:
+     {show: true, fill: true}, color: '#4C688B' },
+  { data: ge, label: "GE", points: {show: true}, lines:
+     {show: true, fill: true}, color: '#2B4970' }
+], {
+  xaxes: [ { mode: "time" } ],
+  yaxes: [ { min: 0 }  ],
+  legend: { position: "sw" }
+});
+</pre>
+              </td>
+              <td>
+                <pre>var dd = [[Date.parse("1980-01-02"), 6.72],
+          [Date.parse("1981-01-02"), 7.00],
+          [Date.parse("1982-01-04"), 6.38],
+          [Date.parse("1983-01-03"), 5.97],
+          [Date.parse("1984-01-03"), 8.53]];
+var xom = [[Date.parse("1980-01-02"), 1.68],
+           [Date.parse("1981-01-02"), 2.54],
+           [Date.parse("1982-01-04"), 3.86],
+           [Date.parse("1983-01-03"), 3.62],
+           [Date.parse("1984-01-03"), 4.58]];
+var ge = [[Date.parse("1980-01-02"), 1.01],
+          [Date.parse("1981-01-02"), 1.29],
+          [Date.parse("1982-01-04"), 1.22],
+          [Date.parse("1983-01-03"), 1.91],
+          [Date.parse("1984-01-03"), 2.40]];
+</pre></td>
+              <td>Javascript</td>
+              <td>Apr 2014</td>
+              <td>Yes</td>
+              <td>No</td>
             </tr>
             <tr>
               <td><a href="http://matplotlib.org/">Matplotlib 1.2.1</a></td>
@@ -110,6 +153,7 @@ ge = (1.01, 1.29, 1.22, 1.91, 2.40)
               <td>Python</td>
               <td>June 2014<br>
               </td>
+              <td>Yes</td>
               <td>Yes</td>
             </tr>
           </tbody>
