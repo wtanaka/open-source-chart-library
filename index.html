@@ -1,59 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Open source chart library comparison by wtanaka</title>
+    <title>Open source chart library comparison</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->
     <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <link rel="stylesheet" href="stylesheets/ie.css">    <![endif]-->
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/wtanaka/open-source-chart-library">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/wtanaka/open-source-chart-library/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/wtanaka/open-source-chart-library/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
-
+    <div id="header">
+      <nav>
+        <li class="fork"><a href="https://github.com/wtanaka/open-source-chart-library">Contribute
+            On GitHub</a></li>
+      </nav>
+    </div>
+    <!-- end header -->
     <div class="wrapper">
-
       <section>
         <div id="title">
           <h1>Open source chart library comparison</h1>
-          <p>Open source chart library comparison</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/wtanaka">wtanaka</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
+        <table>
+          <tbody>
+            <tr>
+              <th>Library</th>
+              <th>Line chart</th>
+              <th>Code</th>
+              <th>Data</th>
+              <th>Language</th>
+              <td>Last maintained</td>
+              <td>Legend</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.chartjs.org/">Chart.js version 8f025f33c0<br>
+                </a></td>
+              <td><img alt="Chart.js line chart" src="chartjs-line.png"></td>
+              <td>
+                <pre>&lt;script src="Chart.js"&gt;&lt;/script&gt;<br>&lt;canvas id="myChart" width="400" height="400"&gt;&lt;/canvas&gt;<br>var ctx = $("#myChart").get(0).getContext("2d");
+new Chart(ctx).Line(data,options);</pre>
+              </td>
+              <td>
+                <pre>var data = {
+  labels: ["1980-01-02", "1981-01-02", "1982-01-04",
+    "1983-01-03", "1984-01-03"],
+  datasets: [
+    {
+      fillColor : "rgba(116,139,167,0.5)",
+      strokeColor : "rgba(116,139,167,1)",
+      pointColor : "rgba(116,139,167,1)",
+      pointStrokeColor : "#fff",
+      data: [6.72, 7.00, 6.38, 5.97, 8.53]
+    },
+    {
+      fillColor : "rgba(76,104,139,0.5)",
+      strokeColor : "rgba(76,104,139,1)",
+      pointColor : "rgba(76,104,139,1)",
+      pointStrokeColor : "#fff",
+      data : [1.68, 2.54, 3.86, 3.62, 4.58]
+    },
+    {
+      fillColor : "rgba(43,73,112,0.5)",
+      strokeColor : "rgba(43,73,112,1)",
+      pointColor : "rgba(43,73,112,1)",
+      pointStrokeColor : "#fff",
+      data: [1.01, 1.29, 1.22, 1.91, 2.40]
+    }
+  ]
+}
+</pre></td>
+              <td>Javascript</td>
+              <td>Oct 2013</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><a href="http://matplotlib.org/">Matplotlib 1.2.1</a></td>
+              <td><img alt="Matplotlib line chart" src="matplotlib-line.png"></td>
+              <td>
+                <pre>import datetime
+import matplotlib.pyplot as plot<br>def do_plot(y, color, label):
+  plot.plot(dates, y, color=color, label=label)
+  plot.plot(dates, y, color=color, linestyle='None', marker="o",
+    markersize=7, markeredgecolor='w', markeredgewidth=1.5)
+  plot.fill_between(dates, y, facecolor=(color,), alpha=0.5)
 
-        <h1>
-<a name="open-source-chart-library-comparison" class="anchor" href="#open-source-chart-library-comparison"><span class="octicon octicon-link"></span></a>Open source chart library comparison</h1>
+do_plot(dd, '#748BA7', "DD")
+do_plot(xom, '#4C688B', "XOM")
+do_plot(ge, '#2B4970', "GE")
+
+plot.legend()
+plot.ylabel("Price")
+plot.xlabel("Date")
+plot.grid()
+plot.gcf().autofmt_xdate()
+plot.gcf().set_size_inches(4, 4)
+plot.savefig('matplotlib-line.png', dpi=100)
+</pre> </td>
+              <td>
+                <pre>dates = ("1980-01-02", "1981-01-02", "1982-01-04", "1983-01-03", "1984-01-03")
+dates = tuple(datetime.datetime.strptime(date, "%Y-%m-%d") for date in dates)<br>dd = (6.72, 7.00, 6.38, 5.97, 8.53)
+xom = (1.68, 2.54, 3.86, 3.62, 4.58)
+ge = (1.01, 1.29, 1.22, 1.91, 2.40)
+</pre></td>
+              <td>Python</td>
+              <td>June 2014<br>
+              </td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
-
+      <hr> <span class="credits left">Project maintained by <a href="https://wtanaka.com/">wtanaka</a></span>
+      <span class="credits right">Hosted on GitHub Pages — Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
+    <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
-          <script type="text/javascript">
+    <script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("UA-52357734-1");
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
   </body>
 </html>
