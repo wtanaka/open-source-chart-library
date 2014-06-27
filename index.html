@@ -85,7 +85,19 @@ new Chart(ctx).Line(data,options);</pre>
                 </a></td>
               <td><img alt="Flot line chart" src="flot-line.png"></td>
               <td>
-                <pre>$.plot("#placeholder", [
+                <pre>.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.2em;
+}
+
+&lt;div class="demo-container"&gt;
+  &lt;div id="placeholder" class="placeholder"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+$.plot("#placeholder", [
   { data: dd, label: "DD", points: {show: true}, lines:
      {show: true, fill: true}, color: '#748BA7' },
   { data: xom, label: "XOM", points: {show: true}, lines:
